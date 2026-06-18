@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 <!-- In <head> -->
+<link href="https://fonts.googleapis.com/css?family=Mukta+Mahee:200,300,400,700,800" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
 
@@ -19,6 +20,32 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+h2,h3{
+  font-family:Playfair display,sans-serif;
+  font-weight: 700;
+  font: 32px;
+  color:#000;
+}
+
+.container {
+    width: 100%;
+    padding-right: 12px;
+    padding-left: 12px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1140px; /* around this size on large screens */
+}
+
+
+p{
+  color:#6c757d;
+  font-family:Mukta Mahee, arial, sans-serif;
+  font-weight: 200;
+  font-size: 18px;
+  line-height: 1.8;
+  margin:0px 0px 16px;
 }
 
 .hero-header {
@@ -46,7 +73,7 @@
 }
 
 .hero-content h1{
-    font-family:"Abril Fatface", times, serif;
+    font-family:"Abril Fatface",times, serif;
     font-size:80px;
     font-weight:bold;
     color:white;
@@ -117,18 +144,7 @@
     padding-left: 40px;
 }
 
-.welcome-content h2{
-    font-size: 50px;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: #000;
-    text-align: left;
-}
-
 .welcome-content p{
-    font-size: 20px;
-    line-height: 1.9;
-    color: #6c757d;
     margin-bottom: 20px;
     text-align:left;
 }
@@ -165,9 +181,13 @@
     letter-spacing: 1px;
 }
 
+
+
 .experience{
     padding:10px 0;
+    
    }
+
 
 .heading{
     text-align:left;
@@ -237,7 +257,73 @@
 
 /* ── Slider Items ─────────────────────────── */
 #carosuel{
+    position:relative;
+    padding-bottom:250px;
+}
+
+/* teal background */
+#carosuel::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:400px;
+    background:#65c0ba;
+    z-index:1;
+
+    clip-path:polygon(
+        0 38%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+}
+
+/* carousel above teal */
+#carouselExampleIndicators{
+    position:relative;
+    z-index:10;
+}
+
+.carousel-wrapper{
+    background:#65c0ba;
+    height: 1200px;
+    position:relative;
+}
+
+#carouselExampleIndicators{
+    width:1140px;
+    position:relative;
+    margin:-250px auto 0;
+    z-index:100;
+}
+
+.carousel-wrapper::before{
+    content:"";
+    position:absolute;
+    top:-120px;
+    left:0;
+    width:100%;
+    height:200px;
+    background:#fff;
+
+    clip-path: polygon(
+        0 100%,
+        100% 40%,
+        100% 0,
+        0 0
+    );
+}
+
+.carousel-wrapper .container{
     position: relative;
+    z-index: 2;
+}
+
+
+h2 span{
+    display: block;
 }
 
 .tour-heading{
@@ -249,6 +335,7 @@
     font-family:"Playfair Display",serif;
     font-size:70px;
     font-weight:700;
+
 }
 
 .tour-heading p{
@@ -256,17 +343,9 @@
     margin:20px auto;
     color:#6c757d;
     font-size:18px;
+    line-height: 1.8;
 }
 
-.carosuel {
-    padding: 80px 0;
-    position: relative;
-}
-
-#carouselExampleIndicators {
-    width: 85%;
-    margin: auto;
-}
 
 .carousel-inner {
     overflow: hidden;
@@ -280,7 +359,7 @@
 /* Previous & Next buttons */
 .carousel-control-prev,
 .carousel-control-next {
-    width: 8%;
+    width: -90px;
 }
 
 .carousel-control-prev-icon,
@@ -292,19 +371,19 @@
 
 .carousel-control-prev-icon::after {
     content: "❮";
-    font-size: 60px;
+    font-size: 70px;
     color: #555;
 }
 
 .carousel-control-next-icon::after {
     content: "❯";
-    font-size: 60px;
+    font-size: 70px;
     color: #555;
 }
 
 /* Dots */
 .carousel-indicators {
-    bottom: 25px;
+    bottom: 30px;
 }
 
 .carousel-indicators button {
@@ -320,10 +399,6 @@
 .carousel-indicators .active {
     background: white !important;
 }
-
-
-/* ── Navigation Arrows ────────────────────── */
-
 
 /* ── Responsive ───────────────────────────── */
 @media (max-width: 768px) {
@@ -399,7 +474,10 @@
     position: relative;
     background: #65c0ba;
     padding: 120px 0 100px;
-    margin-top: -1px;
+
+    margin-top:-250px;
+    z-index:20;
+
 }
 
 
@@ -445,86 +523,67 @@
   
 }
 
-/* Blog card */
-.media-custom {
-  display: block;
+.blog-section{
+    background: #65c9c9;
+    padding: 100px 0;
 }
 
-/* Image link wrapper */
-.media-custom > a.mb-4 {
-  display: block;
-  overflow: hidden;
-  border-radius: 4px;
+.blog-section .container{
+    max-width: 1140px;
 }
 
-/* Blog image */
-.media-custom > a img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  display: block;
-  transition: transform 0.4s ease;
+.media-custom{
+    background: #fff;
+    height: 100%;
 }
 
-.media-custom > a:hover img {
-  transform: scale(1.05);
+.media-custom > a{
+    display:block;
+    overflow:hidden;
 }
 
-/* Date meta */
-.meta-post {
-  display: block;
-  font-size: 13px;
-  color: #aaa;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 10px;
+.media-custom img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
 }
 
-/* Post title */
-.media-body h2 {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.4;
-  color: #000;
+.media-body{
+    background: #fff;
+    padding: 35px 38px;
 }
 
-.media-body h2 a {
-  color: #000;
-  text-decoration: none;
-  transition: color 0.25s ease;
+.meta-post{
+    display: block;
+    color: #c7c7c7;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 18px;
 }
 
-.media-body h2 a:hover {
-  color: #65c9c9;
+.media-body h2{
+    margin-bottom: 25px;
+    line-height: 1.2;
 }
 
-/* Post excerpt */
-.media-body p {
-  font-size: 15px;
-  color: #6c757d;
-  line-height: 1.8;
-  margin-top: 10px;
+.media-body h2 a{
+    text-decoration: none;
+    color: #000;
+    font-size: 28px;
+    font-weight: 700;
+    font-family: "Playfair Display", serif;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .section-blog {
-    padding: 50px 0;
-  }
-
-  .primary-bg-text .heading {
-    font-size: 30px;
-  }
-
-  .media-custom > a img {
-    height: 200px;
-  }
+.media-body p{
+    color: #6c757d;
+    line-height: 2;
+    font-size: 18px;
 }
 
-@media (max-width: 480px) {
-  .media-custom > a img {
-    height: 180px;
-  }
+.post{
+    margin-bottom: 30px;
 }
 
 #headdd{
@@ -534,7 +593,6 @@
 
 .customer{
     display:flex;
-    justify-content: space-around;
     text-align: left;
     gap:50px;
 }
@@ -549,119 +607,122 @@
     margin-bottom: 20px;
 }
 
+.paraa{
+  color: black;
+}
+
 .happy-customers{
-    background: rgb(231, 231, 231);
+    background: #fafafa;
     padding: 80px 0;
 }
 
 #features{
-    background: rgb(231, 231, 231);
+    background: #fafafa;
     padding: 80px 0;
 }
 
 /* ===== Top Destination / Visit Section ===== */
+/* SECTION */
 .visit-section {
-  padding: 80px 0;
+  padding: 7em 0;
   background: #fff;
 }
 
+/* HEADING */
 .visit-section .heading {
-  font-size: 40px;
+  font-family: "Playfair Display", serif;
+  font-size: 35px;
   font-weight: 700;
   color: #000;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .visit-section .lead {
-  font-size: 17px;
+  font-size: 20px;
+  line-height: 1.8;
   color: #6c757d;
-  line-height: 1.9;
+  text-align: center;
 }
 
-/* Card */
+/* CARD */
 .visit {
-  position: relative;
+  display: block;
 }
 
-.visit a img {
+.visit img {
   width: 100%;
-  height: 220px;
+  height: 180px;
   object-fit: cover;
   display: block;
-  border-radius: 4px;
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition: 0.3s;
 }
 
-.visit a:hover img {
-  transform: scale(1.04);
-  opacity: 0.88;
+.visit:hover img {
+  opacity: 0.9;
 }
 
-/* Title */
+/* TITLE */
 .visit h3 {
+  margin-top: 20px;
+  margin-bottom: 12px;
+  font-family: "Playfair Display", serif;
   font-size: 18px;
   font-weight: 700;
-  margin-top: 14px;
-  margin-bottom: 8px;
+  text-align: left;
 }
 
 .visit h3 a {
-  color: #000;
   text-decoration: none;
-  transition: color 0.25s ease;
+  color: #000;
 }
 
 .visit h3 a:hover {
-  color: #65c9c9;
+  color: #65c0ba;
 }
 
-/* Stars row — clearfix */
-.visit .reviews-star {
-  font-size: 14px;
-  color: #f5a623;
+/* REVIEW ROW */
+.review-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.visit .reviews-star span {
-  margin-right: 2px;
+.reviews-star {
+  color: #65c0ba;
+  font-size: 15px;
+  letter-spacing: 2px;
 }
 
-/* Reviews count */
-.visit .reviews-count {
-  font-size: 13px;
-  color: #aaa;
-  line-height: 1.6;
+.reviews-count {
+  color: #ccc;
+  font-style: italic;
+  font-size: 16px;
 }
 
-/* clearfix so stars and count sit on same line */
-.visit::after {
-  content: '';
-  display: table;
-  clear: both;
+/* CONTAINER WIDTH SAME AS HEPTA */
+.container {
+  max-width: 1140px;
 }
 
-/* Responsive */
+/* MOBILE */
 @media (max-width: 768px) {
-  .visit-section {
-    padding: 50px 0;
-  }
 
   .visit-section .heading {
-    font-size: 30px;
+    font-size: 42px;
   }
 
-  .visit a img {
-    height: 200px;
+  .visit-section .lead {
+    font-size: 17px;
   }
-}
 
-@media (max-width: 480px) {
-  .visit a img {
-    height: 180px;
+  .visit img {
+    height: 220px;
   }
-}
 
-.section visit-section h2{
-    text-align: center;
+  .visit h3 {
+    font-size: 22px;
+  }
 }
 
 .site-footer{
@@ -695,6 +756,7 @@
 .site-footer li,
 .contact-item{
     text-align: left;
+    font-size:18px;
 }
 
 .site-footer ul li a{
@@ -716,8 +778,9 @@
     display:block;
     color:#fff;
     font-style:italic;
+    font-family: 'Times New Roman', Times, serif;
     margin-bottom:8px;
-    font-size:20px;
+    font-size:18px;
      text-align: left;
 }
 
@@ -828,12 +891,12 @@
     </div>
 
     <!-- Text Content -->
-    <div class="col-lg-6 pl-lg-5 aos-init aos-animate" data-aos="fade-up" style="text-align:left;">
-            <h2 class="mb-4">Welcome To Our Website</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. </p>
+    <div id="welcome" class="col-lg-6 pl-lg-5 aos-init aos-animate" data-aos="fade-up" style="text-align:left;">
+            <h2 class="mb-4" style="font-family:  Abril Fatface, times, serif; color: #000; font-weight: 500;font-size: 2rem; ">Welcome To Our Website</h2>
+            <p id="para">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+            <p id="para">A small river named Duden flows by their place and supplies it with the necessary regelialia. </p>
             <p class="pt-4">
-              <a href="https://vimeo.com/channels/staffpicks/93951774" data-fancybox="" class="btn-play d-flex">
+              <a href="https://vimeo.com/channels/staffpicks/93951774" data-fancybox="" class="btn-play d-flex" style="color:#65c0ba">
                 <span class="icon align-self-center mr-3"><span class="fa fa-play"></span></span>
                 <span class="text align-self-center">Watch The Video</span>
               </a>
@@ -848,9 +911,9 @@
 <section id="features" class="section cards">
     <div class="container-fluid px-5 py-5">
 
-        <div class="heading">
+        <div class="heading row-justify">
             <h2 style="font-size: 30px; text-align:center; font-family: Abril Fatface, times, serif;">Experience Once In Your Life Time</h2>
-            <p style="font-size: medium; text-align:left">
+            <p style="text-align:center">
                 Far far away, behind the word mountains, far from the countries
                 Vokalia and Consonantia, there live the blind texts.
                 Separated they live in Bookmarksgrove right at the coast of the
@@ -863,37 +926,37 @@
             <div class="feature-card">
                 <img src="https://preview.colorlib.com/theme/hepta/fonts/flaticon/svg/001-breakfast.svg" alt="">
                 <h3>Good Foods</h3>
-                <p>Far far away, behind the word mountains...</p>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
 
             <div class="feature-card">
                 <img src="https://preview.colorlib.com/theme/hepta/fonts/flaticon/svg/002-planet-earth.svg" alt="">
                 <h3>Travel Anywhere</h3>
-                <p>Far far away, behind the word mountains...</p>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
 
             <div class="feature-card">
                 <img src="https://preview.colorlib.com/theme/hepta/fonts/flaticon/svg/003-airplane.svg" alt="">
                 <h3>Airplane</h3>
-                <p>Far far away, behind the word mountains...</p>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
 
             <div class="feature-card">
                 <img src="https://preview.colorlib.com/theme/hepta/fonts/flaticon/svg/004-beach.svg" alt="">
                 <h3>Beach Resort</h3>
-                <p>Far far away, behind the word mountains...</p>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
 
             <div class="feature-card">
                 <img src="https://preview.colorlib.com/theme/hepta/fonts/flaticon/svg/005-mountains.svg" alt="">
                 <h3>Mountain Climbing</h3>
-                <p>Far far away, behind the word mountains...</p>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
 
             <div class="feature-card">
                 <img src="https://preview.colorlib.com/theme/hepta/fonts/flaticon/svg/006-hot-air-balloon.svg" alt="">
                 <h3>Hot Air Balloon</h3>
-                <p>Far far away, behind the word mountains...</p>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
             </div>
 
         </div>
@@ -901,15 +964,16 @@
     </div>
     
 </section>
-<section id="carosuel" class="carosuel">
+<section id="carosuel-section" ]>
+  <div class="carosuel-wrapper">
+  <div class="container">
     <div class="tour-heading">
-    <h2>International Tour Management.</h2>
+    <h2>International Tour <span>Management.</span></h2>
     <p>
-        Far far away, behind the word mountains, far from the countries
-        Vokalia and Consonantia, there live the blind texts.
+        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
     </p>
-</div>
-<div id="carouselExampleIndicators" class="carousel slide">
+  </div>
+  <div id="carouselExampleIndicators" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -935,6 +999,8 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
+</div>
+</div>
 </section>
 
 
@@ -950,7 +1016,7 @@
           <div class="col-lg-4 col-md-6 col-sm-6 col-12 post aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
 
             <div class="media media-custom d-block mb-4">
-              <a href="#" class="mb-4 d-block"><img src="images/slider-5.jpg" alt="Image placeholder" class="img-fluid" loading="lazy" decoding="async"></a>
+              <a href="#" class="d-block"><img src="images/slider-5.jpg" alt="Image placeholder" class="img-fluid" loading="lazy" decoding="async"></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">45 Best Places To Unwind</a></h2>
@@ -961,7 +1027,7 @@
           </div>
           <div class="col-lg-4 col-md-6 col-sm-6 col-12 post aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
             <div class="media media-custom d-block mb-4">
-              <a href="#" class="mb-4 d-block"><img src="images/slider-6.jpg" alt="Image placeholder" class="img-fluid" loading="lazy" decoding="async"></a>
+              <a href="#" class="d-block"><img src="images/slider-6.jpg" alt="Image placeholder" class="img-fluid" loading="lazy" decoding="async"></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">45 Best Places To Unwind</a></h2>
@@ -971,7 +1037,7 @@
           </div>
           <div class="col-lg-4 col-md-6 col-sm-12 col-12 post aos-init" data-aos="fade-up" data-aos-delay="300">
             <div class="media media-custom d-block mb-4">
-              <a href="#" class="mb-4 d-block"><img src="images/img_3.jpg" alt="Image placeholder" class="img-fluid" loading="lazy" decoding="async"></a>
+              <a href="#" class="d-block"><img src="images/img_3.jpg" alt="Image placeholder" class="img-fluid" loading="lazy" decoding="async"></a>
               <div class="media-body">
                 <span class="meta-post">February 26, 2018</span>
                 <h2 class="mt-0 mb-3"><a href="#">45 Best Places To Unwind</a></h2>
@@ -986,96 +1052,129 @@
 <section class="happy-customers">
     <div class="container" >
         <div id="headdd" class="heading">
-            <h2>Happy customers</h2>
+            <h2 style="font-size: 70px;">Happy customers</h2>
         </div>
         <div class="customer">
             <div class="cus1">
                 <img class="photo" src="images/person_1.jpg">
-                <p style ="font-style: italic;">“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”
-</p><p style ="color: #ddd; font-style: italic;">— Clare Gupta</p>
+                <p class="paraa" style ="font-style: italic;">“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”
+</p><p style =" font-style: italic;">— Clare Gupta</p>
             </div>
             <div class="cus1">
                 <img class="photo" src="images/person_2.jpg">
-                <p style ="font-style: italic;">“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”
-</p><p style ="color: #ddd; font-style: italic;">— Rogie Slater</p>
+                <p class="paraa" style ="font-style: italic;">“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”
+</p><p style ="font-style: italic;">— Rogie Slater</p>
             </div>
             <div class="cus1">
                 <img class="photo" src="images/person_3.jpg">
-                <p style ="font-style: italic;">“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”
-</p><p style ="color: #ddd; font-style: italic;">— John Doe</p>
+                <p class="paraa" style ="font-style: italic;">“Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.”
+</p><p style ="font-style: italic;">— John Doe</p>
             </div>
         </div>
     </div>
 </section>
 
 <section class="section visit-section">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-          <div class="col-md-8 ">
-            <h2 class="heading aos-init aos-animate" data-aos="fade-up" style="text-align: center;  font-family: Playfair Display, serif;">Top Destination</h2>
-            <p class="lead aos-init aos-animate" data-aos="fade-up">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In dolor, iusto doloremque quo odio repudiandae sunt eveniet? Enim facilis laborum voluptate id porro, culpa maiores quis, blanditiis laboriosam alias. Sed.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-3 col-md-6 visit mb-3 aos-init aos-animate" data-aos="fade-right">
-            <a href="#"><img src="images/slider-6.jpg" alt="Image placeholder" class="img-fluid" loading="lazy" decoding="async"> </a>
-            <h3><a href="#">Food &amp; Wines</a></h3>
-            <div class="reviews-star float-left">
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star-half"></span>
-              <span class="ion-android-star-outline"></span>
+  <div class="container">
+
+    <div class="row justify-content-center text-center mb-5">
+      <div class="col-md-8">
+        <h2 class="heading">Top Destination</h2>
+        <p class="lead">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. In dolor,
+          iusto doloremque quo odio repudiandae sunt eveniet? Enim facilis
+          laborum voluptate id porro, culpa maiores quis, blanditiis
+          laboriosam alias. Sed.
+        </p>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="visit">
+          <a href="#">
+            <img src="images/slider-6.jpg" alt="">
+          </a>
+
+          <h3><a href="#">Food & Wines</a></h3>
+
+          <div class="review-wrap">
+            <div class="reviews-star">
+              ★★★★☆
             </div>
-            <span class="reviews-count float-right">
+
+            <span class="reviews-count">
               3,239 reviews
             </span>
           </div>
-          <div class="col-lg-3 col-md-6 visit mb-3 aos-init aos-animate" data-aos="fade-right" data-aos-delay="100">
-            <a href="#"><img src="images/slider-5.jpg" alt="Image placeholder" class="img-fluid" loading="lazy" decoding="async"> </a>
-            <h3><a href="#">Resort &amp; Spa</a></h3>
-            <div class="reviews-star float-left">
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star-half"></span>
-              <span class="ion-android-star-outline"></span>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="visit">
+          <a href="#">
+            <img src="images/slider-5.jpg" alt="">
+          </a>
+
+          <h3><a href="#">Resort & Spa</a></h3>
+
+          <div class="review-wrap">
+            <div class="reviews-star">
+              ★★★★☆
             </div>
-            <span class="reviews-count float-right">
+
+            <span class="reviews-count">
               4,921 reviews
             </span>
           </div>
-          <div class="col-lg-3 col-md-6 visit mb-3 aos-init aos-animate" data-aos="fade-right" data-aos-delay="200">
-            <a href="#"><img src="images/img_3.jpg" alt="Image placeholder" class="img-fluid" loading="lazy" decoding="async"> </a>
-            <h3><a href="#">Hotel Rooms</a></h3>
-            <div class="reviews-star float-left">
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star-outline"></span>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="visit">
+          <a href="#">
+            <img src="images/img_3.jpg" alt="">
+          </a>
+
+          <h3><a href="#">Hotel Rooms</a></h3>
+
+          <div class="review-wrap">
+            <div class="reviews-star">
+              ★★★★☆
             </div>
-            <span class="reviews-count float-right">
+
+            <span class="reviews-count">
               2,112 reviews
             </span>
           </div>
-          <div class="col-lg-3 col-md-6 visit mb-3 aos-init aos-animate" data-aos="fade-right" data-aos-delay="300">
-            <a href="#"><img src="images/img_5.jpg" alt="Image placeholder" class="img-fluid" loading="lazy" decoding="async"> </a>
-            <h3><a href="#">Mountain Climbing</a></h3>
-            <div class="reviews-star float-left">
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star"></span>
-              <span class="ion-android-star-outline"></span>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 mb-4">
+        <div class="visit">
+          <a href="#">
+            <img src="images/img_5.jpg" alt="">
+          </a>
+
+          <h3><a href="#">Mountain Climbing</a></h3>
+
+          <div class="review-wrap">
+            <div class="reviews-star">
+              ★★★★☆
             </div>
-            <span class="reviews-count float-right">
+
+            <span class="reviews-count">
               6,421 reviews
             </span>
           </div>
         </div>
       </div>
- </section>
+
+    </div>
+
+  </div>
+</section>
 
 
 <footer class="site-footer">
@@ -1085,7 +1184,7 @@
 
             <!-- Quick Links -->
             <div class="col-lg-3 col-md-6 mb-5">
-                <h3>Quick Link</h3>
+                <h3 style="font-size:18px;">Quick Link</h3>
                 <ul>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Terms & Conditions</a></li>
@@ -1097,7 +1196,7 @@
 
             <!-- Support -->
             <div class="col-lg-3 col-md-6 mb-5">
-                <h3>Support</h3>
+                <h3 style="font-size:18px;">Support</h3>
                 <ul>
                     <li><a href="#">Our Location</a></li>
                     <li><a href="#">The Hosts</a></li>
@@ -1109,7 +1208,7 @@
 
             <!-- Contact -->
             <div class="col-lg-3 col-md-6 mb-5">
-                <h3>Contact Info</h3>
+                <h3 >Contact Info</h3>
 
                 <div class="contact-item">
                     <span>Address:</span>
@@ -1133,7 +1232,7 @@
 
             <!-- Subscribe -->
             <div class="col-lg-3 col-md-6 mb-5">
-                <h3>Subscribe</h3>
+                <h3 style="font-size:18px;">Subscribe</h3>
 
                 <p class="subscribe-text">
                     Sign up for our newsletter
